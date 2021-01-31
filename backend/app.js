@@ -12,7 +12,7 @@ mongoose
 .connect(
   "mongodb+srv://maax:" +
   process.env.MONGO_ATLAS_PW +
-  "@cluster0.l7n0a.mongodb.net/node-angular?retryWrites=true&w=majority", { useNewUrlParser: true })
+  "@cluster0.l7n0a.mongodb.net/node-angular")
   .then(() => {
     console.log('Connect to database!');
   })
@@ -22,7 +22,7 @@ mongoose
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/images", express.static(path.join("backend/images")));
+app.use("/images", express.static(path.join("images")));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
